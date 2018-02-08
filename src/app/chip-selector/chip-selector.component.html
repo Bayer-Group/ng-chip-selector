@@ -1,0 +1,22 @@
+<div class="tyn-chip-selector">
+    <mat-form-field #matElement>
+        <mat-chip-list #chipList>
+            <mat-chip *ngFor="let item of selected; index as selectedIdx" [selectable]="false"
+                      [ngClass]="{ invalid: item.invalid }" color="primary" selected
+                      [matTooltip]="showTooltips && item.invalid ? 'Invalid Selection' : ''">
+                {{ item.text }} <mat-icon (click)="removeOption(item)"
+                                          [matTooltip]="showTooltips && !item.invalid ? 'Remove Selection' : ''">close</mat-icon>
+            </mat-chip>
+            
+            <input [placeholder]="placeholder" #mainInput [matChipInputFor]="chipList"
+                   (focus)="inputFocus()" (keydown)="inputKeyEvent($event)"
+                   [(ngModel)]="filterText" (ngModelChange)="filterSelectionList($event)" />
+            
+            <mat-icon *ngIf="!optionListOpen; else chevronDownTemplate">keyboard_arrow_left</mat-icon>
+            
+            <ng-template #chevronDownTemplate>
+                <mat-icon>keyboard_arrow_down</mat-icon>
+            </ng-template>
+        </mat-chip-list>
+    </mat-form-field>
+</div>

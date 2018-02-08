@@ -1,0 +1,26 @@
+<mat-toolbar color="primary" class="mat-elevation-z7">
+    <div>NG Chip Selector</div>
+    
+    <div class="flexy-boi"></div>
+    
+    <a mat-button href="">
+        <i class="zmdi zmdi-github"></i>Github
+    </a>
+</mat-toolbar>
+
+<main class="mat-elevation-z2">
+    <tyn-chip-selector placeholder="Favorite Mopar Muscle Cars"
+                       [(selected)]="selected" [(options)]="options"></tyn-chip-selector>
+    
+    <br />
+    
+    <button mat-raised-button color="primary"
+            (click)="clearSelections()"
+            [disabled]="selected.length === 0">Clear Selections</button>
+</main>
+
+<footer class="mat-caption">
+    <div>NG Chip Selector component created by <a href="https://github.com/Tynarus">Tynarus</a></div>
+    <div class="flexy-boi"></div>
+    <div><a href="">View on Github</a></div>
+</footer>

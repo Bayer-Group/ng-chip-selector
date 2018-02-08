@@ -1,0 +1,58 @@
+@import '~@angular/material/theming';
+
+div.tyn-chip-selector {
+    mat-form-field {
+        width: 100%;
+    
+        mat-icon {
+            padding-left: 4px;
+            font-size: 16px;
+            height: auto;
+            width: auto;
+        }
+    
+        .mat-chip {
+            margin: 4px 8px 0 0 !important;
+            
+            mat-icon {
+                cursor: pointer;
+            }
+            
+            &.invalid {
+                background: rgba(0, 0, 0, 0.12);
+                color: rgba(0, 0, 0, 0.26);
+            }
+        }
+    }
+}
+
+div.tyn-selection-overlay-container {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    
+    div.tyn-selection-list {
+        pointer-events: all;
+        position: absolute;
+        max-height: 256px;
+        overflow: auto;
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2),
+                    0 8px 10px 1px rgba(0, 0, 0, .14),
+                    0 3px 14px 2px rgba(0, 0, 0, .12);
+        
+        div.tyn-selection-list-item {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 16px;
+            text-align: left;
+            cursor: pointer;
+            line-height: 48px;
+            height: 48px;
+        }
+    }
+}
